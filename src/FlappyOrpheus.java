@@ -78,9 +78,9 @@ public class FlappyOrpheus extends JPanel implements ActionListener, KeyListener
         addKeyListener(this);
 
         //Load images
-        backgroundImg = new ImageIcon(getClass().getResource("./flappyorpheusbg.png")).getImage();
-        OrpheusImg = new ImageIcon(getClass().getResource("./Orpheus Flapping.png")).getImage();
-        topPipeImg = new ImageIcon(getClass().getResource("./toppipe.png")).getImage();
+        backgroundImg = new ImageIcon(getClass().getResource("src/assets/flappyorpheusbg.png")).getImage();
+        OrpheusImg = new ImageIcon(getClass().getResource("src/assets/Orpheus Flapping.png")).getImage();
+        topPipeImg = new ImageIcon(getClass().getResource("src.assets/toppipe.png")).getImage();
         bottomPipeImg = new ImageIcon(getClass().getResource("./bottompipe.png")).getImage();
 
         //Loading soundtrack
@@ -164,7 +164,7 @@ public class FlappyOrpheus extends JPanel implements ActionListener, KeyListener
             if(!pipe.passed && orpheus.x > pipe.x + pipe.width){
                 pipe.passed = true;
                 score += 0.5;
-                playSound("src/assets/point.wav");
+                playSound("src/assets/sfx/point.wav");
             }
 
             if (collision(orpheus, pipe)){
@@ -214,7 +214,7 @@ public class FlappyOrpheus extends JPanel implements ActionListener, KeyListener
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
             velocityY = -12;
-            playSound("src/assets/jump.wav");
+            playSound("src/assets/sfx/jump.wav");
             if(gameOver){
                 orpheus.y = OrpheY;
                 velocityY = 0;
